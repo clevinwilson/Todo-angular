@@ -1,17 +1,27 @@
 import { Component } from '@angular/core';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms'; 
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [MatDialogActions, MatDialogContent, MatFormFieldModule, FormsModule, MatDialogClose],
+  imports: [
+    MatDialogActions,
+    MatDialogContent,
+    MatFormFieldModule,
+    FormsModule,
+    MatDialogClose,
+  ],
   templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.scss'
+  styleUrl: './add-task.component.scss',
 })
 export class AddTaskComponent {
-
   constructor(public dialogRef: MatDialogRef<AddTaskComponent>) {}
 
   taskName: string = '';
@@ -24,8 +34,10 @@ export class AddTaskComponent {
   onAdd(): void {
     const taskData = {
       name: this.taskName,
-      description: this.taskDescription
+      description: this.taskDescription,
     };
-    this.dialogRef.close(taskData); // Send data back to the parent component
+    console.log(taskData, '>>>>');
+
+    this.dialogRef.close(taskData);
   }
 }

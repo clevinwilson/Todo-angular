@@ -17,7 +17,7 @@ export class TaskCardComponent {
     console.log('open');
     
     const dialogRef = this.dialog.open(AddTaskComponent, {
-      width: '400px'
+      width: '600px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
