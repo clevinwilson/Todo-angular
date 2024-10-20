@@ -27,13 +27,21 @@ export class AddTaskComponent {
   taskName: string = '';
   taskDescription: string = '';
 
+  /**
+   * Close dialog.
+   * @returns void.
+   */
   onCancel(): void {
     this.dialogRef.close();
   }
 
+  /**
+   * Add new task and close the dialog
+   * @returns void.
+   */
   onAdd(): void {
     const taskData = {
-      name: this.taskName,
+      title: this.taskName,
       description: this.taskDescription,
     };
     this.dialogRef.close(taskData);

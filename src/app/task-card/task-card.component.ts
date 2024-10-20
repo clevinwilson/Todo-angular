@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AddTaskComponent } from '../add-task/add-task.component';
-
+import { Component, input, OnInit } from '@angular/core';
+import { task } from '../interface/interface';
 @Component({
   selector: 'app-task-card',
   standalone: true,
@@ -10,21 +8,6 @@ import { AddTaskComponent } from '../add-task/add-task.component';
   styleUrl: './task-card.component.scss'
 })
 export class TaskCardComponent {
-
-  constructor(public dialog: MatDialog) {}
-
-  openAddTaskDialog(): void {
-    console.log('open');
-    
-    const dialogRef = this.dialog.open(AddTaskComponent, {
-      width: '600px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('Task Added:', result);
-        // Handle the new task data (save it, display it, etc.)
-      }
-    });
-  }
+  task = input.required<task>();
 }
+

@@ -18,5 +18,15 @@ export class TaskService {
       name: 'Arun',
       photo: './avatar-icon.png',
     }
+  ];
+
+  task = [
+    {
+      id: 1,
+      userId: 1,
+      title: 'Special title treatment',
+      description: 'With supporting text below as a natural lead-in to additional content.',
+      createDate: Date.now()
+    }
   ]
 }
