@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, input, OnInit } from '@angular/core';
+import { task } from '../interface/interface';
 @Component({
   selector: 'app-task-card',
   standalone: true,
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './task-card.component.scss'
 })
 export class TaskCardComponent {
-
+  task = input.required<task>();
 }
+
