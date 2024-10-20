@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center user-card-wrap">
-  <img class="ms-2 user-avatar rounded-circle" src="./avatar-icon.png" alt="" />
-  <span class="ms-3">Clevin</span>
+<div class="d-flex align-items-center user-card-wrap mb-4">
+  <img class="ms-2 user-avatar rounded-circle" [src]="user().photo"  alt="" />
+  <span class="ms-3">{{user().name}}</span>
 </div>

@@ -36,8 +36,6 @@ export class AddTaskComponent {
       name: this.taskName,
       description: this.taskDescription,
     };
-    console.log(taskData, '>>>>');
-
     this.dialogRef.close(taskData);
   }
 }
