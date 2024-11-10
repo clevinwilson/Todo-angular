@@ -4,4 +4,5 @@ export interface task {
     title: string;
     description: string;
     createDate: number;
+    status: string;
   }

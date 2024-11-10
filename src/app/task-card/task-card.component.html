@@ -1,10 +1,10 @@
 <div class="card-body mt-4">
-  <h5 class="card-title">{{task().title}}</h5>
+  <h5 class="card-title" [ngClass]="{'text-decoration-line-through': task().status === 'COMPLETED'}" >{{task().title}}</h5>
   <span>{{task().createDate}}</span>
-  <p class="card-text mt-4">
+  <p class="card-text mt-4" [ngClass]="{'text-decoration-line-through': task().status === 'COMPLETED'}" >
     {{task().description}}
   </p>
   <div class="d-flex justify-content-end align-items-center">
-    <button href="#" class="btn btn-primary complete-btn">Complete</button>
+    <button (click)="markAsCompleted(task().id)" class="btn btn-primary complete-btn">Complete</button>
   </div>
 </div>

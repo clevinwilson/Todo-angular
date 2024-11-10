@@ -13,6 +13,7 @@ import { TaskService } from './services/task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { task } from './interface/interface';
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ import { task } from './interface/interface';
     HeaderComponent,
     UserCardComponent,
     TaskCardComponent,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -69,5 +71,17 @@ export class AppComponent implements OnInit {
         });
       }
     });
+  }
+
+  markAsCompleted(id:number){
+    console.log(id,'event');
+    console.log(this.tasks());
+    const updatedTaskList = this.tasks().map((task)=>{
+      if(task.id === id){
+        return { ...task, status:'COMPLETED'}
+      } 
+      return task;
+    });
+    this.tasks.update(() => [...updatedTaskList])
   }
 }
