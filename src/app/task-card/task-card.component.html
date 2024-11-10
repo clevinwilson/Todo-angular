@@ -1,16 +1,10 @@
-<div class="card task-card-wrap p-3">
-  <div class="d-flex justify-content-between">
-    <h5>Clevin's Tasks</h5>
-    <a href="#" class="btn btn-primary task-btn">Add Task</a>
-  </div>
-  <div class="card-body mt-4">
-    <h5 class="card-title">Special title treatment</h5>
-    <span>Saturday, Jun 15, 2024</span>
-    <p class="card-text mt-4">
-      With supporting text below as a natural lead-in to additional content.
-    </p>
-    <div class="d-flex justify-content-end align-items-center">
-      <a href="#" class="btn btn-primary complete-btn">Complete</a>
-    </div>
+<div class="card-body mt-4">
+  <h5 class="card-title" [ngClass]="{'text-decoration-line-through': task().status === 'COMPLETED'}" >{{task().title}}</h5>
+  <span>{{task().createDate}}</span>
+  <p class="card-text mt-4" [ngClass]="{'text-decoration-line-through': task().status === 'COMPLETED'}" >
+    {{task().description}}
+  </p>
+  <div class="d-flex justify-content-end align-items-center">
+    <button (click)="markAsCompleted(task().id)" class="btn btn-primary complete-btn">Complete</button>
   </div>
 </div>

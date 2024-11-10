@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-card',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent {
-
+  user = input.required<{ id: number, name: string, photo:string }>();
 }
