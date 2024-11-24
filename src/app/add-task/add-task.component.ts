@@ -1,0 +1,49 @@
+import { Component } from '@angular/core';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-add-task',
+  standalone: true,
+  imports: [
+    MatDialogActions,
+    MatDialogContent,
+    MatFormFieldModule,
+    FormsModule,
+    MatDialogClose,
+  ],
+  templateUrl: './add-task.component.html',
+  styleUrl: './add-task.component.scss',
+})
+export class AddTaskComponent {
+  constructor(public dialogRef: MatDialogRef<AddTaskComponent>) {}
+
+  taskName: string = '';
+  taskDescription: string = '';
+
+  /**
+   * Close dialog.
+   * @returns void.
+   */
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
+  /**
+   * Add new task and close the dialog
+   * @returns void.
+   */
+  onAdd(): void {
+    const taskData = {
+      title: this.taskName,
+      description: this.taskDescription,
+    };
+    this.dialogRef.close(taskData);
+  }
+}
